@@ -10,7 +10,7 @@ export const useApi = apiFunc => {
 };
 
 export const useApiByID = id => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   useEffect(() => {
     fetchMovieDetails(id).then(resp => setData(resp));
   }, [id]);

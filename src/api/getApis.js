@@ -45,3 +45,17 @@ export const fetchMovieReviews = async id => {
     console.log(err);
   }
 };
+
+export const fetchMovieCasts = async id => {
+  try {
+    const resp = await axios.get(`${BASE_URL}/3/movie/${id}/reviews`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    console.log(resp.data.results);
+    return resp.data.results;
+  } catch (err) {
+    console.log(err);
+  }
+};

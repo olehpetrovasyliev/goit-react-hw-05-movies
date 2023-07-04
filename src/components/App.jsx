@@ -1,14 +1,14 @@
 import { Route, Routes, BrowserRouter, useParams } from 'react-router-dom';
-import { Home } from './Home/Home';
-import { NavBar } from './NavBar/NavBar';
-import Reviews from './MovieDetails/Reviews/Reviews';
-import MovieDetails from './MovieDetails/MovieDetails';
-import Cast from './MovieDetails/Casts/Cast';
+import { Home } from '../pages/Home/Home';
+import { NavBar } from '../pages/NavBar/NavBar';
+import Reviews from '../pages/MovieDetails/Reviews/Reviews';
+import MovieDetails from '../pages/MovieDetails/MovieDetails';
+import Cast from '../pages/MovieDetails/Casts/Cast';
 
 export const App = () => {
   return (
     <>
-      <BrowserRouter basename="/goit-react-hw-05-movies/">
+      <BrowserRouter basename="/goit-react-hw-05-movies">
         <Routes>
           <Route path="/" element={<NavBar />}>
             <Route index element={<Home />} />
