@@ -1,4 +1,9 @@
-import { fetchMovieDetails, fetchMovieReviews } from 'api/getApis';
+import {
+  fetchMovieCasts,
+  fetchMovieDetails,
+  fetchMovieReviews,
+  flterMoviesByName,
+} from 'api/getApis';
 import { useState, useEffect } from 'react';
 
 export const useApi = apiFunc => {
@@ -22,5 +27,21 @@ export const useReviewsByID = id => {
   useEffect(() => {
     fetchMovieReviews(id).then(resp => setData(resp));
   }, [id]);
+  return [data, setData];
+};
+
+export const useCastsByID = id => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetchMovieCasts(id).then(resp => setData(resp));
+  }, [id]);
+  return [data, setData];
+};
+
+export const useFlterMoves = q => {
+  const [data, setData] = useState('');
+  useEffect(() => {
+    flterMoviesByName(q).then(resp => setData(resp));
+  }, [q]);
   return [data, setData];
 };

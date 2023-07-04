@@ -4,6 +4,7 @@ import { NavBar } from '../pages/NavBar/NavBar';
 import Reviews from '../pages/MovieDetails/Reviews/Reviews';
 import MovieDetails from '../pages/MovieDetails/MovieDetails';
 import Cast from '../pages/MovieDetails/Casts/Cast';
+import Movies from 'pages/Movies/Movies';
 
 export const App = () => {
   return (
@@ -16,7 +17,7 @@ export const App = () => {
               <Route path="/movies/:movieId/cast" element={<Cast />} />
               <Route path="/movies/:movieId/reviews" element={<Reviews />} />
             </Route>
-            <Route path="/movies/" />
+            <Route path="/movies/" element={<Movies />} />
           </Route>
         </Routes>
       </BrowserRouter>

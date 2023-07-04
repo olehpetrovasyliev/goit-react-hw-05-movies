@@ -1,4 +1,5 @@
-import { useApiByID } from 'hooks/useApi';
+import { fetchMovieDetails } from 'api/getApis';
+import { useAllApiByID, useApiByID } from 'hooks/useApi';
 import React from 'react';
 
 import { NavLink, Outlet, useParams } from 'react-router-dom';
