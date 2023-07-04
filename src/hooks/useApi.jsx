@@ -1,4 +1,4 @@
-import { fetchMovieDetails } from 'api/getApis';
+import { fetchMovieDetails, fetchMovieReviews } from 'api/getApis';
 import { useState, useEffect } from 'react';
 
 export const useApi = apiFunc => {
@@ -13,6 +13,14 @@ export const useApiByID = id => {
   const [data, setData] = useState([]);
   useEffect(() => {
     fetchMovieDetails(id).then(resp => setData(resp));
+  }, [id]);
+  return [data, setData];
+};
+
+export const useReviewsByID = id => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetchMovieReviews(id).then(resp => setData(resp));
   }, [id]);
   return [data, setData];
 };

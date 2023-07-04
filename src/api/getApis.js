@@ -25,8 +25,22 @@ export const fetchMovieDetails = async id => {
         api_key: API_KEY,
       },
     });
-    console.log(resp);
+    // console.log(resp);
     return resp.data;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const fetchMovieReviews = async id => {
+  try {
+    const resp = await axios.get(`${BASE_URL}/3/movie/${id}/reviews`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+    console.log(resp.data.results);
+    return resp.data.results;
   } catch (err) {
     console.log(err);
   }
