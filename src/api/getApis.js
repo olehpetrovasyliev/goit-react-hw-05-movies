@@ -43,8 +43,8 @@ export const fetchMovieCasts = async id => {
   return data.cast;
 };
 
-export const flterMoviesByName = async query => {
-  const { data } = await apiBase.get(`/3/search/keyword?`, {
+export const filterMoviesByName = async query => {
+  const { data } = await apiBase.get(`/3/search/movie?`, {
     params: {
       query,
       api_key: API_KEY,

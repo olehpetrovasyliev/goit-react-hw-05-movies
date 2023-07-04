@@ -1,15 +1,30 @@
+import { filterMoviesByName } from 'api/getApis';
 import SearchForm from 'components/Form/SearchForm';
+import MoviesList from 'components/MoviesList/MoviesList';
+import { useFilterMovies } from 'hooks/useApi';
 import propTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
-  const
-  const getFilteredMovies = (q) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [movies, setMovies] = useState([]);
 
-  }
+  useEffect(() => {
+    const query = searchParams.get('query');
+    filterMoviesByName(query).then(resp => setMovies(resp));
+  }, [searchParams]);
+
+  const handleSubmit = q => {
+    setSearchParams({ query: q });
+    console.log(searchParams);
+    console.log(movies);
+  };
+
   return (
     <div>
-      <SearchForm cb={console.log(1)} />
+      <SearchForm cb={handleSubmit} />
+      <MoviesList arr={movies} />
     </div>
   );
 };

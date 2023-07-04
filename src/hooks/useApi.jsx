@@ -2,7 +2,7 @@ import {
   fetchMovieCasts,
   fetchMovieDetails,
   fetchMovieReviews,
-  flterMoviesByName,
+  filterMoviesByName,
 } from 'api/getApis';
 import { useState, useEffect } from 'react';
 
@@ -38,10 +38,10 @@ export const useCastsByID = id => {
   return [data, setData];
 };
 
-export const useFlterMoves = q => {
+export const useFilterMovies = q => {
   const [data, setData] = useState('');
   useEffect(() => {
-    flterMoviesByName(q).then(resp => setData(resp));
+    filterMoviesByName(q).then(resp => setData(resp));
   }, [q]);
   return [data, setData];
 };

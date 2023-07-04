@@ -1,18 +1,23 @@
-import { fetchMovieDetails } from 'api/getApis';
-import { useAllApiByID, useApiByID } from 'hooks/useApi';
-import React from 'react';
+// import { fetchMovieDetails } from 'api/getApis';
+import GoBackButton from 'components/Button/GoBackButton';
+import { useApiByID } from 'hooks/useApi';
+import React, { Suspense } from 'react';
 
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
-  let { movieId } = useParams();
+  const { movieId } = useParams();
   const [data] = useApiByID(movieId);
+  const navigate = useNavigate();
   if (!data) {
     return;
   }
+  const goBack = () => {
+    navigate(-1);
+  };
   return (
     <>
-      <button>Go back</button>
+      <GoBackButton cb={goBack} />
       <div>
         <img
           src={`https://image.tmdb.org/t/p/w500/${data?.poster_path}`}
@@ -41,7 +46,9 @@ const MovieDetails = () => {
           </li>
         </ul>
       </div>
-      <Outlet />;
+      <Suspense fallback={'<h1>Loading</h1>'}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

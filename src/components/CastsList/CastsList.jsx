@@ -7,10 +7,15 @@ const CastsList = ({ arr }) => {
     <ul>
       {arr.map(cast => (
         <li key={cast.id}>
-          <img
-            src={`https://api.themoviedb.org/${cast.profile_path}`}
-            alt={cast.name}
-          />
+          {
+            <img
+              src={
+                `https://image.tmdb.org/t/p//w200/${cast.profile_path} ` ??
+                `https://i.pravatar.cc/200`
+              }
+              alt={cast.name}
+            />
+          }
           <h3>{cast.name}</h3>
           <p>{cast.character}</p>
         </li>
