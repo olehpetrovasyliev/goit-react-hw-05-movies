@@ -2,7 +2,6 @@ import {
   fetchMovieCasts,
   fetchMovieDetails,
   fetchMovieReviews,
-  filterMoviesByName,
 } from 'api/getApis';
 import { useState, useEffect } from 'react';
 
