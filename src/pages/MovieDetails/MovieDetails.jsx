@@ -29,9 +29,9 @@ const MovieDetails = () => {
       <div>
         <img
           src={
-            `https://image.tmdb.org/t/p/w500/${
-              data?.poster_path ?? data?.backdrop_path
-            }` || 'https://placekitten.com/500/700'
+            data.poster_path
+              ? `https://image.tmdb.org/t/p/w500/${data?.poster_path}`
+              : 'https://placekitten.com/500/700'
           }
           alt={data.original_title}
         />

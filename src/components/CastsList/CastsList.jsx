@@ -10,8 +10,9 @@ const CastsList = ({ arr }) => {
           {
             <img
               src={
-                `https://image.tmdb.org/t/p//w200/${cast?.profile_path} ` ||
-                'https://i.pravatar.cc/200'
+                cast.profile_path
+                  ? `https://image.tmdb.org/t/p//w200/${cast?.profile_path}`
+                  : 'https://i.pravatar.cc/200'
               }
               alt={cast.name}
             />
