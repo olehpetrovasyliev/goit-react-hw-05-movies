@@ -1,7 +1,6 @@
 import { filterMoviesByName } from 'api/getApis';
 import SearchForm from 'components/Form/SearchForm';
 import MoviesList from 'components/MoviesList/MoviesList';
-import { useFilterMovies } from 'hooks/useApi';
 import propTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';

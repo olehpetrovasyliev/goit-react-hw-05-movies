@@ -1,4 +1,3 @@
-import { fetchMovieReviews } from 'api/getApis';
 import ReviewsList from 'components/ReviewsList/ReviewsList';
 import { useReviewsByID } from 'hooks/useApi';
 import React from 'react';

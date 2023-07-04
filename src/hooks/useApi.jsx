@@ -37,11 +37,3 @@ export const useCastsByID = id => {
   }, [id]);
   return [data, setData];
 };
-
-export const useFilterMovies = q => {
-  const [data, setData] = useState('');
-  useEffect(() => {
-    filterMoviesByName(q).then(resp => setData(resp));
-  }, [q]);
-  return [data, setData];
-};
