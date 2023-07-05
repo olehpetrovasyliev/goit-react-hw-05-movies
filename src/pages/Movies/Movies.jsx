@@ -16,8 +16,6 @@ const Movies = () => {
 
   const handleSubmit = q => {
     setSearchParams({ query: q });
-    console.log(searchParams);
-    console.log(movies);
   };
 
   return (

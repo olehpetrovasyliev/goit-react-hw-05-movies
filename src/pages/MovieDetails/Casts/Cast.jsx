@@ -6,15 +6,14 @@ import { useParams } from 'react-router-dom';
 const Cast = () => {
   const { movieId } = useParams();
   const [data] = useCastsByID(movieId);
-
+  if (!data.length) {
+    return;
+  }
   const markup = data.length ? (
     <CastsList arr={data} />
   ) : (
     <h3>No info about casts!</h3>
   );
-  if (!data) {
-    return;
-  }
 
   return markup;
 };

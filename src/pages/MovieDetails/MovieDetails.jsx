@@ -21,7 +21,6 @@ const MovieDetails = () => {
   }
   const goBack = () => {
     navigate(location?.state?.from || -1);
-    console.log(location);
   };
   return (
     <>

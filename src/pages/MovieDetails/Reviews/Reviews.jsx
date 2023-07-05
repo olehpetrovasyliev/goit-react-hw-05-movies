@@ -15,7 +15,7 @@ const Reviews = () => {
     <h2>No reviews yet</h2>
   );
 
-  return <ul>{markup}</ul>;
+  return markup;
 };
 
 export default Reviews;
